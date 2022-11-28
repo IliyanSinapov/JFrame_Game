@@ -8,9 +8,6 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class GamePanel extends JPanel {
-
-    private float xDelta = 0, yDelta = 0;
-    private float xDir = 1f, yDir = 1f;
     private MouseInputs mouseInputs;
     public ArrayList<Rectangle> rects = new ArrayList<>();
 
@@ -23,20 +20,6 @@ public class GamePanel extends JPanel {
         addMouseMotionListener(mouseInputs);
     }
 
-    public void changeXDelta(int value) {
-        this.xDelta += value;
-        repaint();
-    }
-
-    public void changeYDelta(int value) {
-        this.yDelta += value;
-    }
-
-    public void setRectPos(int x, int y) {
-        this.xDelta = x;
-        this.yDelta = y;
-    }
-
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -44,19 +27,6 @@ public class GamePanel extends JPanel {
         for (int i = 0; i < rects.size(); i++) {
             g.setColor(rects.get(i).color);
             g.fillRect(rects.get(i).x, rects.get(i).y, rects.get(i).w, rects.get(i).h);
-        }
-    }
-
-    public void updateRects() {
-
-        xDelta += xDir;
-        if (xDelta >= 1280 || xDelta <= 0) {
-            xDir *= -1;
-        }
-
-        yDelta += yDir;
-        if (yDelta >= 720 || yDelta <= 0) {
-            yDir *= -1;
         }
     }
 
