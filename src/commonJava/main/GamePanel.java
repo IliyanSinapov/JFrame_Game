@@ -31,7 +31,7 @@ public class GamePanel extends JPanel {
     }
 
     public void addRects(int x, int y, int w, int h, Color color) {
-        rects.add(new GamePanel.Rectangle(x * w, y * h, w, h, color));
+        rects.add(new GamePanel.Rectangle(x * 10, y * 10, w, h, color));
     }
 
     public static class Rectangle {
@@ -44,11 +44,6 @@ public class GamePanel extends JPanel {
             this.w = w;
             this.h = h;
             this.color = color;
-        }
-
-        public void draw(Graphics g) {
-            g.setColor(color);
-            g.fillRect(x, y, w, h);
         }
     }
 }
